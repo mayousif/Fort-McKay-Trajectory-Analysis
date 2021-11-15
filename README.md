@@ -1,2 +1,2 @@
-# Fort-McKay-Trajectory-Analysis
+# Fort McKay Trajectory Analysis
  
