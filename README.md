@@ -21,5 +21,7 @@ The output from this first script ("5min_backtraj_results.Rdata") is a named lis
 
 The trajectory data file is also used as an input to "identifySources.R", which counts the number of points that intersect each facility along each trajectory. This can be used to identify which facilities were upwind at a given time. The output file of this script ("source_matrix.Rdata") is a dataframe where the first column contains the end datetimes of each trajectory and the remaining columns show the number of points intersecting each source. Therefore, a value of 0 indicates the facility was not upwind at the given time of interest. This script only identifies specific facilities (Suncor, Syncrude, CNRL Horizon, and CNRL Muskeg + Jackpine) from the original shapefile and so this script can be altered to include additional facilities.
 
+# Questions and/or Problems?
+Please email me (meguel.yousif@mail.utoronto.ca) if you have any questions or run into any issues.
 
 
