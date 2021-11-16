@@ -20,8 +20,8 @@ FMK_lat_UTM = 6338012
 source_datetimes = as.data.frame(as.POSIXct(names(allResults),format = "%Y-%m-%d %H:%M:%S",tz="MST"))
 syncrude_results = as.vector(rep(0,nrow(source_datetimes)))
 suncor_results = as.vector(rep(0,nrow(source_datetimes)))
-shell_results = as.vector(rep(0,nrow(source_datetimes)))
-cnrl_results = as.vector(rep(0,nrow(source_datetimes)))
+cnrlMJ_results = as.vector(rep(0,nrow(source_datetimes)))
+cnrlHorizon_results = as.vector(rep(0,nrow(source_datetimes)))
 
 all_datetimes = source_datetimes[,1]
 facility_ID = as.numeric(facilities_UTM$OSP_NO)
@@ -43,15 +43,16 @@ for (i in 1:length(allResults)) {
     sum(st_intersects(st_union(facilities_UTM[facilities_UTM$OSP_NO==8,]),point_UTM,sparse=F))
   syncrude_results[all_datetimes %in% data$Datetime[nrow(data)]] =
     sum(st_intersects(st_union(facilities_UTM[facilities_UTM$OSP_NO==20,]),point_UTM,sparse=F))
-  cnrl_results[all_datetimes %in% data$Datetime[nrow(data)]] =
-    sum(st_intersects(st_union(facilities_UTM[facilities_UTM$OSP_NO==7,]),point_UTM,sparse=F))
-  shell_results[all_datetimes %in% data$Datetime[nrow(data)]] =
+  cnrlMJ_results[all_datetimes %in% data$Datetime[nrow(data)]] =
     sum(st_intersects(st_union(facilities_UTM[(facilities_UTM$OSP_NO==3) | (facilities_UTM$OSP_NO==24),]),point_UTM,sparse=F))
+  cnrlHorizon_results[all_datetimes %in% data$Datetime[nrow(data)]] =
+    sum(st_intersects(st_union(facilities_UTM[facilities_UTM$OSP_NO==7,]),point_UTM,sparse=F))
+  
 }
 
 
 # Merge and save data
-source_matrix = cbind(source_datetimes,suncor_results,syncrude_results,shell_results,cnrl_results)
+source_matrix = cbind(source_datetimes,suncor_results,syncrude_results,cnrlMJ_results,cnrlHorizon_results)
 colnames(source_matrix)[1] = "Datetime"
 save(source_matrix,file = "source_matrix.Rdata")
 
