@@ -3,7 +3,7 @@
 These scripts are designed to calculate back-trajectories from Fort McKay, Alberta and detect upwind oil sands facilities. There are two primary scripts, one to calculate the trajectories and another to find which oil sands facilities are intersected by each trajectory. Trajectories are calculated using local wind data from 10 monitring stations maintained by the Wood Buffalo Environmental Association (WBEA). Sample wind data for 2020 is provided (Wind_Data_All_Stations.csv) and can be found here: https://wbea.org/historical-monitoring-data/. Shapefiles for Fort McKay and the surroudning oil sands facilities are also provided.
 
 # Installation and Setup
-These scripts were written in R version 4.0+, which is required (https://www.r-project.org/). After installing R, three packages need to be installed (along with their dependecies, which is generally done automatically)"
+These scripts were written in R version 4.0+, which is required (https://www.r-project.org/). After installing R, three packages need to be installed (along with their dependecies, which is usually done automatically).
 
 * "rgdal" (https://cran.r-project.org/web/packages/rgdal/rgdal.pdf)
 * "gstat" (https://cran.r-project.org/web/packages/gstat/gstat.pdf)
